@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SendMsg – הירשמו בחינם</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f4f9;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .demo-grid {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .demo-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(99, 40, 167, 0.1);
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .demo-card h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .demo-card p {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .demo-btn {
+      border: none;
+      border-radius: 8px;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      width: 100%;
+    }
+
+    .demo-btn--purple {
+      background: linear-gradient(135deg, #A8107E, #6328A7);
+      color: #fff;
+    }
+
+    .demo-btn--blue {
+      background: linear-gradient(135deg, #4B2ADA, #7c3aed);
+      color: #fff;
+    }
+
+    .demo-btn--gold {
+      background: linear-gradient(135deg, #c9920a, #e6b800);
+      color: #fff;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .badge--plain {
+      background: #f0eef9;
+      color: #6328A7;
+      border: 1.5px solid #d5c9f5;
+    }
+
+    .badge--ai {
+      background: #ebe6ff;
+      color: #4B2ADA;
+      border: 1.5px solid #c4b6f7;
+    }
+
+    .badge--shabbat {
+      background: #fff7e6;
+      color: #b07d00;
+      border: 1.5px solid #f0d890;
+    }
+
+  </style>
+  <script type="module" crossorigin src="/assets/index-a6F064ze.js"></script>
+</head>
+
+<body>
+  <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
+    <div class="demo-grid">
+
+      <!-- 1. Default (no chip) -->
+      <div class="demo-card">
+        <span class="badge badge--plain">ללא סוג</span>
+        <h2>רגיל</h2>
+        <p>ללא business-ai וללא שומר שבת</p>
+        <button class="demo-btn demo-btn--purple" onclick="document.getElementById('reg-plain').open()">
+          הירשמו בחינם
+        </button>
+      </div>
+
+      <!-- 2. Business AI -->
+      <div class="demo-card">
+        <span class="badge badge--ai">✦ Business AI</span>
+        <h2>Business AI</h2>
+        <p>מצב AI עסקי עם אייקון ורקע ייחודי</p>
+        <button class="demo-btn demo-btn--blue" onclick="document.getElementById('reg-ai').open()">
+          הירשמו בחינם
+        </button>
+      </div>
+
+      <!-- 3. Shabbat / Kosher -->
+      <div class="demo-card">
+        <span class="badge badge--shabbat">🕯 שומר שבת</span>
+        <h2>שומר שבת</h2>
+        <p>מצב חשבון כשר עם רקע ייחודי</p>
+        <button class="demo-btn demo-btn--gold" onclick="document.getElementById('reg-shabbat').open()">
+          הירשמו בחינם
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Embedded (inline) example -->
+    <div style="width:100%;max-width:960px;padding:40px 20px;">
+      <h2 style="text-align:center;color:#6328A7;margin-bottom:16px;font-size:18px;">
+        גרסה משובצת בעמוד (ללא מודאל)
+      </h2>
+      <sendmsg-register embedded business-ai></sendmsg-register>
+      <br /><br /><br />
+      <!-- Form-only embedded -->
+      <sendmsg-register embedded hide-image business-ai></sendmsg-register>
+      <br /><br /><br />
+      <!-- Dark embedded, form-only -->
+      <sendmsg-register embedded dark hide-image business-ai></sendmsg-register>
+    </div>
+  </div>
+
+  <sendmsg-register id="reg-plain"></sendmsg-register>
+  <sendmsg-register id="reg-ai" business-ai></sendmsg-register>
+  <sendmsg-register id="reg-shabbat" open-kosher-account></sendmsg-register>
+
+</body>
+
+</html>
